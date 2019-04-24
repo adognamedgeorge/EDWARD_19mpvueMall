@@ -1,5 +1,10 @@
 <template>
   <div @click="clickHandle">
+    <div>
+      <home-search></home-search>
+      <home-head></home-head>
+      <home-slide></home-slide>
+    </div>
 
     <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
@@ -35,7 +40,9 @@
 
 <script>
 import card from '@/components/card'
-
+import homeSearch from '@/components/search'
+import homeHead from '@/components/head'
+import homeSlide from '@/components/slide'
 export default {
   data () {
     return {
@@ -48,7 +55,10 @@ export default {
   },
 
   components: {
-    card
+    card,
+    homeSearch,
+    homeHead,
+    homeSlide
   },
 
   methods: {
@@ -72,7 +82,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -80,7 +90,7 @@ export default {
 }
 
 .userinfo-avatar {
-  width: 128rpx;
+  width: rpx(128);
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
