@@ -30,13 +30,10 @@ export default {
 .divSlide {
   padding: rpx(30);
   .homeSwiper {
-    width: 100%;
     height: rpx(300);
     border-radius: rpx(20);
     img {
-      width: 100%;
-      height: 100%;
-      border-radius: rpx(20);
+      @include img(rpx(20))
     }
   }
 }

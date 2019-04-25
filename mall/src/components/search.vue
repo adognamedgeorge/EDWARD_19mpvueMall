@@ -1,32 +1,42 @@
 <template>
-  <div class="dSearch">
-    <div class="iconLf">
-      <i class="iconfont">&#xe7f9;</i>
-      <p>分类</p>
-    </div>
-    <div class="inSearch">
-      <div class="inWrap">
-        <i class="iconfont">&#xe611;</i>
-        <input type="text" placeholder="请输入搜索关键词" />
+  <div id="box">
+    <div class="dSearch">
+      <div class="iconLf">
+        <i class="iconfont">&#xe7f9;</i>
+        <p>分类</p>
+      </div>
+      <div class="inSearch">
+        <div class="inWrap">
+          <i class="iconfont">&#xe611;</i>
+          <input type="text" placeholder="请输入搜索关键词" />
+        </div>
+      </div>
+      <div class="iconRt">
+        <i class="iconfont">&#xe61b;</i>
+        <p>购物车</p>
       </div>
     </div>
-    <div class="iconRt">
-      <i class="iconfont">&#xe61b;</i>
-      <p>购物车</p>
+    <div>
+      <home-head></home-head>
     </div>
   </div>
 </template>
 
 <script>
+import homeHead from './head'
 export default {
-  name: 'homeSearch'
+  name: 'homeSearch',
+  components: {
+    homeHead
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .dSearch {
   flex-direction: row;
-  margin-bottom: rpx(20);
+  padding: rpx(20) 0;
+  background-color: whitesmoke;
   .iconLf, .iconRt {
     width: 20%;
     flex-direction: column;

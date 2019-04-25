@@ -1,9 +1,16 @@
 <template>
   <div @click="clickHandle">
-    <div>
+    <div class="dSearch">
       <home-search></home-search>
-      <home-head></home-head>
+    </div>
+
+    <div class="dSlide">
       <home-slide></home-slide>
+      <home-nav></home-nav>
+    </div>
+
+    <div>
+      <home-main></home-main>
     </div>
 
     <div class="userinfo" @click="bindViewTap">
@@ -41,8 +48,9 @@
 <script>
 import card from '@/components/card'
 import homeSearch from '@/components/search'
-import homeHead from '@/components/head'
 import homeSlide from '@/components/slide'
+import homeNav from '@/components/nav'
+import homeMain from '@/components/main'
 export default {
   data () {
     return {
@@ -57,8 +65,9 @@ export default {
   components: {
     card,
     homeSearch,
-    homeHead,
-    homeSlide
+    homeSlide,
+    homeNav,
+    homeMain
   },
 
   methods: {
@@ -83,6 +92,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.dSearch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+}
+.dSlide {
+  margin-top: rpx(170);
+}
 .userinfo {
   display: flex;
   flex-direction: column;
