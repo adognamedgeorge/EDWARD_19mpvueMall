@@ -1,7 +1,7 @@
 <template>
   <div @click="clickHandle">
     <div class="dSearch">
-      <home-search></home-search>
+      <home-search v-on:val="val"></home-search>
     </div>
 
     <div class="dSlide">
@@ -42,6 +42,12 @@
         <div class="right">
         </div>
     </div>
+
+    <div v-show="showLeft">
+      <home-left></home-left>
+    </div>
+
+    <div class="mask" v-show="showLeft" @click="hidLf"></div>
   </div>
 </template>
 
@@ -51,6 +57,7 @@ import homeSearch from '@/components/search'
 import homeSlide from '@/components/slide'
 import homeNav from '@/components/nav'
 import homeMain from '@/components/main'
+import homeLeft from '@/components/left'
 export default {
   data () {
     return {
@@ -58,7 +65,8 @@ export default {
       userInfo: {
         nickName: 'mpvue',
         avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
+      },
+      showLeft: false
     }
   },
 
@@ -67,10 +75,17 @@ export default {
     homeSearch,
     homeSlide,
     homeNav,
-    homeMain
+    homeMain,
+    homeLeft
   },
 
   methods: {
+    val (childVal) {
+      this.showLeft = childVal
+    },
+    hidLf () {
+      this.showLeft = false
+    },
     bindViewTap () {
       const url = '../logs/main'
       if (mpvuePlatform === 'wx') {
@@ -98,7 +113,16 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 999;
+  z-index: 9;
+}
+.mask {
+  position: fixed;
+  background-color: rgba(128, 128, 128, .5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
 }
 .dSlide {
   margin-top: rpx(170);

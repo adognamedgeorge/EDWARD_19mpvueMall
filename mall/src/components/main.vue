@@ -32,22 +32,6 @@ export default {
         { url: 'https://goss2.veer.com/creative/vcg/veer/612/veer-133071017.jpg' }
       ]
     }
-  },
-  methods: {
-    getList () {
-      let Fly = require('flyio')
-      let fly = new Fly()
-      fly.get('https://easy-mock.com/mock/5ca466b55eeed03805bf4949/edward/edward')
-        .then((res) => {
-          console.log(res)
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    }
-  },
-  mounted () {
-    this.getList()
   }
 }
 </script>

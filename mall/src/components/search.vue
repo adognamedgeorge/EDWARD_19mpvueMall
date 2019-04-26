@@ -1,7 +1,7 @@
 <template>
   <div id="box">
     <div class="dSearch">
-      <div class="iconLf">
+      <div class="iconLf" @click="leftShow">
         <i class="iconfont">&#xe7f9;</i>
         <p>分类</p>
       </div>
@@ -28,6 +28,16 @@ export default {
   name: 'homeSearch',
   components: {
     homeHead
+  },
+  data () {
+    return {
+      childVal: true
+    }
+  },
+  methods: {
+    leftShow () {
+      this.$emit('val', this.childVal)
+    }
   }
 }
 </script>

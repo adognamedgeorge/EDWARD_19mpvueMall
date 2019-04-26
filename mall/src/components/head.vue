@@ -2,22 +2,44 @@
   <div class="outerWrap">
     <div class="homeHead">
       <ul>
-        <li>酒水饮料</li>
-        <li>生鲜水果</li>
-        <li>地方特产</li>
-        <li>成人情趣</li>
-        <li>酒水饮料</li>
-        <li>生鲜水果</li>
-        <li>地方特产</li>
-        <li>成人情趣</li>
+        <li v-for="(item, index) of sortList" :key="index">
+          {{item['name']}}
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import Link from './link.js'
 export default {
-  name: 'homeHead'
+  name: 'homeHead',
+  data () {
+    return {
+      sortList: []
+    }
+  },
+  methods: {
+    getSorts () {
+      let Fly = require('flyio')
+      let fly = new Fly()
+      fly.get('https://easy-mock.com/mock/5c9edbfc8aaa6f3254a8831a/yunmayi/getTopCat')
+        .then((res) => {
+          const re = res.data
+          this.sortList = re.data
+          this.postSorts(this.sortList)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    postSorts (a) {
+      Link.$emit('val', a)
+    }
+  },
+  mounted () {
+    this.getSorts()
+  }
 }
 </script>
 
@@ -32,10 +54,14 @@ export default {
     height: rpx(90);
     line-height: rpx(60);
     white-space: nowrap;
+    float: left;
     li {
       font-size: .3rem;
       padding: 0 rpx(20);
       display: inline-block;
+    }
+    li:first-child {
+      display: none;
     }
   }
 }
