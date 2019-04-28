@@ -20,7 +20,6 @@ export default {
     }
   },
   mounted () {
-    console.log('fuck')
     const vm = this
     Link.$on('val', (data) => {
       vm.sortList = data
