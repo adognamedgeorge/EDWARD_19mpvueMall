@@ -9,10 +9,11 @@
       <input type="text" placeholder="密码" v-model="code" />
     </div>
     <div class="code" v-show="!isSelected">
-      <input type="text" placeholder="手机号" />
+      <input type="text" placeholder="手机号" v-model="phone"/>
       <div class="code_flex">
         <input type="text" placeholder="验证码" />
-        <button>获取验证码</button>
+        <button @click="getCode" v-if="btnShow">获取验证码</button>
+        <button v-if="!btnShow">s</button>
       </div>
       <p>温馨提示:未注册云蚂蚁账号的手机号,登录时将自动注册,且代表您已同意《云蚂蚁用户协议》</p>
     </div>
@@ -27,7 +28,9 @@ export default {
     return {
       isSelected: true,
       username: '',
-      code: ''
+      code: '',
+      phone: '',
+      btnShow: true
     }
   },
   methods: {
@@ -46,6 +49,20 @@ export default {
       })
         .then((res) => {
           console.log(res)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    getCode () {
+      let Fly = require('flyio')
+      let fly = new Fly()
+      fly.post('https://easy-mock.com/mock/5c9edbfc8aaa6f3254a8831a/yunmayi/getCode', {
+        userPhone: this.phone
+      })
+        .then((res) => {
+          const re = res.data
+          console.log(re['data'])
         })
         .catch(err => {
           console.log(err)
