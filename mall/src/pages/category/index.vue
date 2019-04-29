@@ -28,11 +28,10 @@ export default {
       let fly = Fly()
       fly.request({
         methods: 'post',
-        url: 'https://easy-mock.com/mock/5c9edbfc8aaa6f3254a8831a/yunmayi/getMyOrders',
+        url: 'https://easy-mock.com/mock/5c9edbfc8aaa6f3254a8831a/yunmayi/loginSupportDynamicPassword',
         body: {
-          userPhone: 15868175516,
-          code: 9876,
-          token: 'fdbe58155fd7df598ff01a798d2fd4d3'
+          username: 'admin',
+          password: 666666
         }
       })
         .then(res => {
