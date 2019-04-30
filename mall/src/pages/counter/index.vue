@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div class="counter-warp">
     <p>Vuex counter：{{ count }}</p>
     <p>

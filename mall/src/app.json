@@ -2,9 +2,9 @@
   "pages": [
     "pages/index/main",
     "pages/logs/main",
-    "pages/counter/main",
     "pages/category/main",
-    "pages/login/main"
+    "pages/login/main",
+    "pages/usercenter/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,5 +1,6 @@
 <template>
-  <div @click="clickHandle">
+  <div>
+    <a href="../../pages/counter/main" class="counter">去往Vuex示例页面</a>
     <div class="dSearch">
       <home-search v-on:val="val"></home-search>
     </div>
@@ -34,7 +35,7 @@
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
     </form>
 
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+    <a href="../../pages/counter/main" class="counter">去往Vuex示例页面</a>
 
     <div class="all">
         <div class="left">
@@ -85,6 +86,7 @@ export default {
     },
     hidLf () {
       this.showLeft = false
+      console.log(123)
     },
     bindViewTap () {
       const url = '../logs/main'
@@ -97,6 +99,11 @@ export default {
     clickHandle (ev) {
       console.log('clickHandle:', ev)
       // throw {message: 'custom test'}
+    },
+    goCounter () {
+      // const url = '../counter/main'
+      // wx.navigateTo({url})
+      console.log('goCounter')
     }
   },
 
@@ -109,7 +116,7 @@ export default {
 <style scoped lang="scss">
 .dSearch {
   position: fixed;
-  top: 0;
+  top: rpx(50);
   left: 0;
   bottom: 0;
   right: 0;
